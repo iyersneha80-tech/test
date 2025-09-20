@@ -1,0 +1,245 @@
+/* --- Base Styles & Variables --- */
+:root {
+    --background-color: #f4f4f5;
+    --card-background: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --accent-color: #4f46e5;
+}
+
+/* --- Base (Mobile-First) Styles --- */
+body.cricscore-player-profile {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 1rem; /* Padding for mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.profile-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex; /* Single column layout for mobile */
+    flex-direction: column;
+    gap: 1.5rem; /* Gap for mobile */
+}
+
+.player-info-card,
+.stats-card {
+    background-color: var(--card-background);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    padding: 1.5rem; /* Padding for mobile */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.player-info-card {
+    text-align: center;
+}
+
+.player-avatar img {
+    width: 120px; /* Slightly smaller avatar for mobile */
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem auto;
+    border: 4px solid var(--card-background);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f3f4f6; /* Placeholder color */
+}
+
+.player-name {
+    font-size: 1.5rem; /* Adjusted for mobile */
+    font-weight: 700;
+    margin: 0;
+}
+
+.player-role {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin: 0.25rem 0 1.5rem 0;
+}
+
+.player-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.player-details li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.player-details li:last-child {
+    border-bottom: none;
+}
+
+.player-details .label {
+    color: var(--text-secondary);
+}
+
+.player-details .value {
+    font-weight: 600;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Gap for mobile */
+}
+
+.stats-header {
+    font-size: 1.25rem; /* Adjusted for mobile */
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+}
+
+.stats-header i {
+    color: var(--accent-color);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for mobile stats */
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item .value {
+    font-size: 1.75rem; /* Adjusted for mobile */
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.stat-item .label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* --- Desktop Styles (Applied on screens wider than 900px) --- */
+@media (min-width: 901px) {
+    body.cricscore-player-profile {
+        padding: 2rem; /* More padding on desktop */
+    }
+
+    .profile-container {
+        display: grid; /* Enable grid for two-column layout */
+        grid-template-columns: 300px 1fr; /* Two-column layout on desktop */
+        gap: 2rem;
+    }
+    
+    .player-info-card {
+        align-self: start; /* Stick to the top on desktop */
+        padding: 2rem;
+    }
+
+    .player-avatar img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 1.5rem;
+    }
+
+    .player-name {
+        font-size: 1.75rem;
+    }
+
+    .player-role {
+        font-size: 1.125rem;
+    }
+    
+    .player-details li {
+        font-size: 0.95rem;
+    }
+
+    .stats-container {
+        gap: 2rem;
+    }
+    
+    .stats-card {
+        padding: 2rem;
+    }
+    
+    .stats-header {
+         font-size: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for stats on desktop */
+        gap: 1.5rem;
+    }
+    
+    .stat-item .value {
+        font-size: 2rem;
+    }
+    
+    .stat-item .label {
+        font-size: 0.9rem;
+    }
+}
+/* --- Match Log Styles --- */
+.match-log-container {
+    grid-column: 1 / -1; /* Make it span full width in grid layout */
+}
+
+.match-log-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+
+.match-log-table th,
+.match-log-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.match-log-table th {
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: #f9fafb;
+}
+
+.match-log-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.match-log-table .match-teams {
+    font-weight: 600;
+}
+
+.match-log-table .match-venue {
+    color: var(--text-secondary);
+}
+.match-log-table .view-match-btn {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.match-log-table .view-match-btn:hover {
+    background-color: #4338ca;
+}

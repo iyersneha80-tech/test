@@ -1,0 +1,52 @@
+/*
+ * CricScore V2 - Match App Header Styles
+ * Implements "The Brand Color Bar" concept.
+ */
+
+.app-header {
+    flex-shrink: 0;
+    /* Corrected background to use the brand gradient from bottom-nav.css */
+    background: linear-gradient(135deg, #0f766e, #a3e635); /* Deep Teal to Lime Green */
+    color: #ffffff;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 20;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.app-header-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+.app-header-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.app-header-status {
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(0, 0, 0, 0.2); /* Darkened for better contrast on gradient */
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.app-header-status .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #16a34a; /* Green */
+}

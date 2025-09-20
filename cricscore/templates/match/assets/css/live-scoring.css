@@ -1,0 +1,263 @@
+/*
+ * CricScore V2 - Mobile-First Live Scoring Stylesheet (v2 - Robust Grid Foundation)
+ */
+
+/* --- 1. BASE SETUP & THEME --- */
+:root {
+    --bg-main: #f0f2f5;
+    --bg-header: #1e293b; /* Dark Slate */
+    --bg-card: #ffffff;
+    --bg-controls: #ffffff;
+    --text-light: #ffffff;
+    --text-dark: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --accent-blue: #3b82f6;
+    --accent-green: #16a34a;
+    --accent-red: #dc2626;
+    --accent-yellow: #f59e0b;
+    --btn-run-bg: #f8fafc;
+    --btn-run-bg-hover: #f1f5f9;
+    --btn-run-border: #e2e8f0;
+}
+
+/* --- 2. CORE APP LAYOUT (FIXES STICKY ISSUE) --- */
+html {
+    height: 100%;
+}
+body.cricscore-match-live {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Changed from 100vh to 100% */
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: var(--bg-main);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+#match-content-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%; /* Ensure this container also fills the height */
+}
+
+
+/* --- 3. STICKY HEADER --- */
+.live-header-sticky {
+    flex-shrink: 0;
+    background-color: var(--bg-header);
+    color: var(--text-light);
+    padding: 12px 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.scoreboard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+#live-batting-team { font-size: 1.2rem; font-weight: 600; }
+.live-score { font-size: 2rem; font-weight: 700; }
+.live-overs { font-size: 1.1rem; font-weight: 400; opacity: 0.9; }
+
+#chase-info {
+    font-size: 0.8rem;
+    text-align: center;
+    background-color: rgba(255,255,255,0.1);
+    padding: 4px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+#target-score { font-weight: bold; }
+
+/* --- 4. SCROLLABLE CONTENT AREA --- */
+.live-content-scrollable {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 16px;
+}
+
+.info-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.info-card .info-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.info-card .info-card-header h4 {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#save-status {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: opacity 0.3s ease;
+}
+
+.player-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.player-name { color: var(--text-dark); font-weight: 500; }
+.player-score { font-weight: 600; }
+.on-strike .player-name::after { content: ' *'; color: var(--accent-blue); }
+
+#this-over-summary {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.ball-log {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    font-weight: 600;
+    color: var(--text-dark);
+}
+.ball-log.wicket { background-color: var(--accent-red); color: var(--text-light); }
+.ball-log.four { background-color: var(--accent-blue); color: var(--text-light); }
+.ball-log.six { background-color: var(--accent-green); color: var(--text-light); }
+
+.actions-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+#undo-btn {
+    background: var(--text-secondary);
+    color: var(--text-light);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* --- 5. STICKY CONTROLS FOOTER --- */
+.live-controls-sticky {
+    flex-shrink: 0;
+    background-color: var(--bg-controls);
+    padding: 16px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.live-controls-sticky .score-btn {
+    height: 64px;
+    border: 1px solid var(--btn-run-border);
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, background-color 0.1s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.live-controls-sticky .score-btn:active {
+    transform: scale(0.96);
+}
+
+.live-controls-sticky .score-btn.runs {
+    background-color: var(--btn-run-bg);
+    color: var(--text-dark);
+}
+.live-controls-sticky .score-btn.runs:hover {
+    background-color: var(--btn-run-bg-hover);
+}
+
+.live-controls-sticky .score-btn.extra {
+    background-color: var(--accent-yellow);
+    color: var(--text-light);
+    border-color: var(--accent-yellow);
+}
+.live-controls-sticky .score-btn.wicket {
+    background-color: var(--accent-red);
+    color: var(--text-light);
+    border-color: var(--accent-red);
+}
+/* --- NEW: Confirm Innings Button Styles (Action Chip) --- */
+
+/* 1. The Animation Definition */
+@keyframes fadeInAndUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. The Container */
+#confirm-innings-container {
+    text-align: center;
+    padding: 16px 0;
+    /* The animation is applied when the container becomes visible */
+    animation: fadeInAndUp 0.5s ease-out forwards;
+}
+
+/* 3. The Button (Action Chip) */
+#confirm-innings-container #confirm-innings-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px; /* Compact padding */
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #28a745; /* Brand green */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    /* Resetting any old styles */
+    width: auto; 
+    margin: 0;
+}
+
+#confirm-innings-container #confirm-innings-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 4. The Helper Text */
+#confirm-innings-container .helper-text {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    margin-bottom: 0;
+}

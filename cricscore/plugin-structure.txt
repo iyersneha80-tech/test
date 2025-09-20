@@ -1,0 +1,25 @@
+cricscore/
+│
+├── cricscore.php
+│
+├── includes/
+│   └── class-cricscore-frontend.php
+│
+└── templates/
+    └── scoreboard/
+        │
+        ├── handler.php
+        ├── wrapper.php
+        │
+        ├── assets/
+        │   ├── css/
+        │   │   └── scoreboard.css
+        │   └── js/
+        │       ├── alpine.min.js
+        │       ├── main.js
+        │       └── module-scoreboard.js
+        │
+        └── partials/
+            ├── live-scoreboard.php
+            ├── match-setup.php
+            └── start-match.php

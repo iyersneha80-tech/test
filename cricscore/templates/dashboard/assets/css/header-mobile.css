@@ -1,0 +1,160 @@
+/*
+ * Stylesheet for CricScore V2 Mobile Header
+ */
+
+/* By default, hide the mobile header on larger (desktop) screens */
+.header-mobile {
+    display: none;
+}
+
+
+/* These styles apply ONLY to screens 1024px wide or smaller */
+@media (max-width: 1024px) {
+
+    /* 1. Hide the original desktop header on mobile */
+    .header {
+        display: none;
+    }
+
+    /* 2. Show the mobile header */
+    .header-mobile {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: .5rem;
+        padding: .6rem 1rem;
+        background: var(--header-bg);
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        top: 0;
+        z-index: 1002;
+    }
+
+    .hm-left,
+    .hm-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .hm-left {
+        justify-content: flex-start;
+    }
+
+    .hm-right {
+        justify-content: flex-end;
+    }
+
+    .header-mobile .user-menu-wrapper {
+        position: relative;
+    }
+    
+    .header-mobile .user-menu-trigger-panel {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .header-mobile .user-menu-trigger-panel:hover,
+    .header-mobile .user-menu-trigger-panel.active {
+        border-color: var(--border-color);
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+
+    .header-mobile .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid transparent;
+        background-image: linear-gradient(var(--header-bg), var(--header-bg)), linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+    }
+
+    .header-mobile .user-dropdown-menu-panel {
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 0;
+        width: 260px;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+        z-index: 1050;
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.95) translateY(-10px);
+        transform-origin: top right;
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+
+    .header-mobile .user-dropdown-menu-panel.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1) translateY(0);
+    }
+    
+    .header-mobile .dropdown-user-info {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        background-color: rgba(0,0,0,0.2);
+    }
+    
+    .header-mobile .dropdown-user-info .user-name {
+        font-weight: 600;
+        color: var(--text-primary);
+        font-size: 1rem;
+        margin: 0;
+    }
+    
+    .header-mobile .dropdown-user-info .user-email {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    .header-mobile .user-dropdown-nav {
+        list-style: none;
+        padding: 0.75rem;
+        margin: 0;
+    }
+    
+    .header-mobile .user-dropdown-nav a {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        padding: 0.75rem;
+        color: var(--text-secondary);
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+    
+    .header-mobile .user-dropdown-nav a:hover {
+        background-color: var(--input-bg);
+        color: var(--text-primary);
+    }
+    
+    .header-mobile .user-dropdown-nav a.logout-link {
+        color: var(--text-logout);
+    }
+    
+    .header-mobile .user-dropdown-nav a.logout-link:hover {
+        background-color: var(--bg-logout-hover);
+    }
+
+    .header-mobile .user-dropdown-nav a i.fas {
+        width: 20px;
+        text-align: center;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,361 @@
+/**
+ * Main Stylesheet for the CricScore User Dashboard.
+ *
+ * @package CricScore
+ * @version 2.0.0 (Modernized & Consolidated)
+ */
+
+/* ---
+* BRANDING & BASE SETUP (NEW)
+--- */
+:root {
+    --dark-bg: #f1f5f9;                     /* Softer, Modern Light Gray */
+    --sidebar-bg: #ffffff;                  /* White */
+    --header-bg: #ffffff;                   /* White */
+    --card-bg: #ffffff;                     /* White */
+    --input-bg: #f8fafc;                    /* Cleaner, Brighter Input Gray */
+    --border-color: #e2e8f0;                /* Softer Border Gray */
+    --text-primary: #1e293b;                /* Deep Slate for High Contrast Text */
+    --text-secondary: #64748b;              /* Softer Slate for Secondary Text */
+    
+    /* --- NEW BRAND ACCENT COLORS --- */
+    --accent-primary: #0f766e;              /* Deep Teal */
+    --accent-secondary: #a3e635;            /* Lime Green */
+
+    --text-logout: #ef4444;                 /* Red */
+    --bg-logout-hover: rgba(239, 68, 68, 0.1); /* Light Red */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body.cricscore-dashboard {
+    background-color: var(--dark-bg);
+    color: var(--text-secondary);
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---
+* MODERN LAYOUT STRUCTURE (NEW)
+--- */
+.dashboard-app {
+    display: flex;
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 2rem;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---
+* MODERN SIDEBAR STYLES (NEW)
+--- */
+.sidebar-header {
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+.sidebar-logo-link {
+    text-decoration: none;
+}
+
+.sidebar-nav {
+    overflow-y: auto;
+    flex-grow: 1;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.sidebar-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item i {
+    width: 20px;
+    font-size: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.nav-divider {
+    padding: 0.75rem 0;
+}
+.nav-divider hr {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    margin-bottom: 0.25rem;
+}
+
+.nav-item a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.nav-item.active a {
+    color: #ffffff;
+    background-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.nav-item.active a i {
+    color: #ffffff;
+}
+
+/* ---
+* MODERN FOOTER STYLES (NEW)
+--- */
+.footer {
+    padding: 0.75rem 2rem;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--sidebar-bg);
+    flex-shrink: 0;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.footer-links a {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer-links a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* ---
+* RESPONSIVE STYLES (NEW)
+--- */
+@media (max-width: 1024px) {
+    .sidebar {
+        display: none;
+    }
+    .content-wrapper {
+        padding-bottom: 70px;
+    }
+    .main-content {
+        padding: 1rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 1.25rem;
+    }
+    .footer-links {
+        justify-content: center;
+    }
+}
+
+/* ---
+* MODERN GENERIC & REUSABLE CLASSES (NEW)
+--- */
+.cricscore-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+    margin-bottom: 1.5rem; /* Added margin for spacing */
+}
+.cricscore-card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.cricscore-card-header h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+}
+.cricscore-card-content {
+    padding: 1.5rem;
+}
+.cricscore-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+.cricscore-table th,
+.cricscore-table td {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary); /* Base text color */
+}
+.cricscore-table td {
+    color: var(--text-primary); /* Darker text for data cells */
+}
+.cricscore-table thead th {
+    background-color: #f9fafb;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+.cricscore-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.cricscore-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* --- MODERNIZED FORM STYLES (NEW) --- */
+.cricscore-form .form-group {
+    margin-bottom: 1.5rem;
+}
+.cricscore-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+.cricscore-form input[type="text"],
+.cricscore-form input[type="date"],
+.cricscore-form input[type="file"],
+.cricscore-form input[type="number"],
+.cricscore-form select,
+.cricscore-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cricscore-form input:focus,
+.cricscore-form select:focus,
+.cricscore-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* ---
+* PRESERVED ORIGINAL STYLES FOR COMPATIBILITY
+--- */
+
+/* Original Grid System (Preserved) */
+.cricscore-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 1.5rem; /* Added for spacing */
+}
+.cricscore-col-8 { width: 66.66%; }
+.cricscore-col-4 { width: 33.33%; }
+
+/* Original Form Message Styles (Preserved & Adapted) */
+.form-message {
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 3px;
+    display: none; /* Hidden by default */
+}
+.form-message.notice { display: block; }
+.notice-info { background-color: #e6f7ff; border: 1px solid #91d5ff; color: #00529B; }
+.notice-success { background-color: #f6ffed; border: 1px solid #b7eb8f; color: #237804; }
+.notice-error { background-color: #fff1f0; border: 1px solid #ffa39e; color: #a8071a; }
+
+/* Original Modal Styles (Preserved) */
+/* Original Modal Styles (Preserved) */
+.cricscore-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 10% from the top and centered */
+    padding: 20px 30px 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    border-radius: 5px;
+}
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

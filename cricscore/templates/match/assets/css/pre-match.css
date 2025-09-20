@@ -1,0 +1,92 @@
+/*
+ * CricScore V2 - Pre-Match Summary Styles
+ */
+
+#step-pre-match-summary .pre-match-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#step-pre-match-summary .pre-match-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+#step-pre-match-summary .pre-match-header p {
+    font-size: 1.1rem;
+    color: #606770;
+    margin: 0;
+}
+
+#step-pre-match-summary .pre-match-body {
+    padding: 24px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+#step-pre-match-summary .match-info-card,
+#step-pre-match-summary .squad-card {
+    background-color: #f7f8fa;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#step-pre-match-summary .match-info-card {
+    flex-basis: 100%;
+}
+
+#step-pre-match-summary .squads-container {
+    display: flex;
+    gap: 24px;
+    flex-basis: 100%;
+}
+
+#step-pre-match-summary .squad-card {
+    flex: 1;
+}
+
+#step-pre-match-summary .match-info-card h3,
+#step-pre-match-summary .squad-card h4 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.25rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+}
+
+#step-pre-match-summary .match-info-card ul,
+#step-pre-match-summary .squad-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#step-pre-match-summary .match-info-card li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+#step-pre-match-summary .squad-card li {
+    padding: 4px 0;
+}
+
+#step-pre-match-summary .pre-match-actions {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid #e0e0e0;
+}
+
+#step-pre-match-summary .pre-match-actions button {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin: 0 8px;
+}

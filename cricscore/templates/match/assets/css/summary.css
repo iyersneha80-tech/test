@@ -1,0 +1,74 @@
+/*
+ * CricScore V2 - Mid & Post Match Summary Styles (v6 - Robust & Consistent)
+ */
+
+#step-mid-innings-summary,
+#step-post-match-summary {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, Content (fills space), Footer */
+    height: 100%;
+    padding: 0;
+}
+
+.summary-header {
+    text-align: center;
+    padding: 24px 24px 20px 24px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.summary-header h1 { font-size: 2rem; font-weight: 700; margin: 0; }
+
+.summary-body {
+    overflow-y: auto; /* This part scrolls */
+    padding: 24px;
+}
+
+.target-card { background-color: #2c3e50; color: #fff; padding: 24px; border-radius: 8px; text-align: center; margin-bottom: 24px; }
+.target-card h3 { margin: 0 0 8px 0; font-size: 1.25rem; font-weight: 400; }
+.target-card .final-score { font-size: 1.75rem; font-weight: 700; margin: 0; }
+.target-card hr { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.2); margin: 16px 0; }
+.target-card .target-score { font-size: 2.25rem; font-weight: 700; margin: 0; color: #f1c40f; }
+.scorecard { margin-bottom: 24px; }
+.scorecard h3 { margin-top: 0; margin-bottom: 12px; }
+.scorecard-table { width: 100%; border-collapse: collapse; }
+.scorecard-table th, .scorecard-table td { text-align: left; padding: 10px; border-bottom: 1px solid #e0e0e0; }
+.scorecard-table th { background-color: #f7f8fa; font-size: 0.9rem; color: #606770; }
+.scorecard-table td:not(:first-child) { text-align: right; }
+.result-card { background-color: #4CAF50; padding: 32px 24px; }
+.result-card h2 { margin: 0; font-size: 2.5rem; font-weight: 700; }
+
+
+/* === ROBUST FOOTER AND BUTTON FIX === */
+
+/* The Footer Container - NO PADDING HERE */
+/* === FINAL ROBUST FOOTER AND BUTTON FIX === */
+
+/* The Footer Container - Now centers content and provides its own padding */
+.summary-actions {
+    background-color: #ffffff;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+    padding: 16px; /* Give the container padding */
+    padding-bottom: calc(16px + env(safe-area-inset-bottom)); /* Add safe area */
+    text-align: center; /* This will center the button */
+}
+
+/* The Button Itself - No longer full-width */
+.summary-action-btn {
+    display: inline-block; /* Allows the button to shrink to fit its content */
+    width: auto; /* Let the button determine its own width */
+    padding: 16px 32px; /* Adjust horizontal padding for a nice shape */
+    border: none;
+    border-radius: 12px; /* Re-introduce rounded corners */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #0f766e, #a3e635);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.summary-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}

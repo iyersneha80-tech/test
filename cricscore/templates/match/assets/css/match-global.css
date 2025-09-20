@@ -1,0 +1,202 @@
+/*
+ * CricScore V2 - Match Global Styles
+ * Contains styles shared across multiple match views (e.g., modals, buttons).
+ */
+
+/* --- Global Action Buttons --- */
+button.button-primary {
+    background-color: #1877f2;
+    color: #fff;
+}
+
+button.button-primary:hover {
+    background-color: #166fe5;
+}
+
+a.button-primary {
+    display: inline-block;
+    text-decoration: none;
+}
+
+button.button-danger {
+    background-color: #e4e6eb;
+    color: #4b4f56;
+}
+
+button.button-danger:hover {
+    background-color: #dcdde1;
+}
+
+/* --- Global Modal Styles --- */
+.cricscore-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px 30px 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    border-radius: 8px;
+}
+
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+}
+
+/* --- Global Form & Message Styles --- */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.error-message {
+    background-color: #fbe2e2;
+    color: #8c1c1c;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #e7a3a3;
+    margin-bottom: 16px;
+}
+
+/* --- Extras Modal Button Group --- */
+#extras-modal .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+#extras-modal .button-group button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    background-color: #f0f2f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#extras-modal .button-group button.selected {
+    background-color: #1877f2;
+    color: #fff;
+    border-color: #1877f2;
+}
+
+#extras-modal .button-group.extras-runs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* --- Wicket & New Bowler Modal Player Cards --- */
+#wicket-modal .player-roster-grid,
+#new-bowler-modal .player-roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+#wicket-modal .player-card,
+#new-bowler-modal .player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    background-color: #fff;
+}
+
+#wicket-modal .player-card:hover,
+#new-bowler-modal .player-card:hover {
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#wicket-modal .player-card-img,
+#new-bowler-modal .player-card-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    background-color: #f1f5f9;
+}
+
+#wicket-modal .player-card-name,
+#new-bowler-modal .player-card-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    color: #334155;
+}
+
+/* Wicket Modal Specifics */
+#wicket-modal .modal-content { max-width: 600px; }
+#wicket-modal .wicket-modal-section { margin-bottom: 24px; }
+#wicket-modal .wicket-modal-section h4 { margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: #334155; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; }
+#wicket-modal .dismissal-type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; }
+#wicket-modal .dismissal-btn { padding: 10px; font-size: 0.9rem; font-weight: 600; border: 1px solid #cbd5e1; background-color: #f8fafc; color: #475569; border-radius: 6px; cursor: pointer; transition: all 0.2s ease-in-out; text-align: center; }
+#wicket-modal .dismissal-btn:hover { background-color: #f1f5f9; border-color: #94a3b8; }
+#wicket-modal .dismissal-btn.selected { background-color: #2563eb; color: #ffffff; border-color: #2563eb; }
+#wicket-modal .player-roster-grid.small { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 12px; }
+#wicket-modal .player-roster-grid.small .player-card { padding: 10px; }
+#wicket-modal .player-roster-grid.small .player-card-img { width: 40px; height: 40px; }
+#wicket-modal .player-roster-grid.small .player-card-name { font-size: 0.85rem; }
+#wicket-modal .player-card.selected { border-color: #2563eb; background-color: #eff6ff; }
+
+/* New Bowler Modal Specifics */
+#new-bowler-modal .player-card.selected { border-color: #db2777; background-color: #fdf2f8; }
+/* --- Global Premium Brand Button --- */
+.button-premium-brand {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    /* Brand Gradient from bottom-nav.css */
+    background: linear-gradient(135deg, #0f766e, #a3e635);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-premium-brand:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}

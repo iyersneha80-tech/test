@@ -1,0 +1,169 @@
+/*
+ * CricScore V2 - Final Match Result Styles (v2 - Mobile First & Responsive)
+ */
+
+/* --- Main Layout --- */
+#step-match-result {
+    padding: 0; /* Remove padding from the outer container */
+}
+
+.cricscore-result-wrapper-redesigned {
+    /* This container no longer needs layout properties, it's just a wrapper */
+}
+
+/* --- 1. Match Summary Header --- */
+.match-summary-header {
+    background-color: #1e293b; /* Dark Blue */
+    color: #ffffff;
+    padding: 16px; /* Reduced padding for mobile */
+}
+
+.summary-scores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.team-summary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.team-logo {
+    width: 40px; /* Smaller logo */
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #475569;
+    flex-shrink: 0;
+}
+
+.team-logo img {
+    width: 32px; /* Smaller logo image */
+    height: 32px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.team-info .short-name {
+    font-size: 1.2rem; /* Adjusted font size */
+    font-weight: 700;
+    margin: 0;
+}
+
+.team-info .score {
+    font-size: 1rem; /* Adjusted font size */
+    font-weight: 500;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+.team-summary.align-right { flex-direction: row-reverse; }
+.team-summary.align-right .team-info { text-align: right; }
+.vs-separator { font-size: 1.2rem; font-weight: 600; color: #64748b; }
+
+.summary-result-text {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-top: 12px;
+    border-top: 1px solid #334155;
+}
+
+/* --- 2. Scorecard Tabs --- */
+.scorecard-tabs {
+    padding: 16px; /* Use padding here for the content */
+}
+
+.tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tab-link {
+    padding: 12px 16px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: -2px;
+    transition: all 0.2s ease-in-out;
+}
+
+.tab-link:hover { color: #1e293b; }
+.tab-link.active { color: #1d4ed8; border-bottom-color: #1d4ed8; }
+.tab-content { display: none; padding-top: 16px; }
+.tab-content.active { display: block; }
+.scorecard-section { margin-bottom: 24px; }
+.scorecard-section h3 { font-size: 1.1rem; margin-top: 0; margin-bottom: 12px; }
+
+/* --- Responsive Scorecard Table Styles --- */
+.scorecard-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    table-layout: fixed; /* Crucial for responsive columns */
+}
+
+.scorecard-table th, .scorecard-table td {
+    text-align: left;
+    padding: 8px 10px; /* Reduced padding */
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 0.9rem; /* Reduced font size */
+    white-space: nowrap; /* Prevent text wrapping in data columns */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ... if text is too long */
+}
+
+.scorecard-table tbody tr:last-child td { border-bottom: none; }
+.scorecard-table th { background-color: #f8fafc; font-size: 0.75rem; color: #64748b; text-transform: uppercase; }
+.player-cell { display: flex; align-items: center; gap: 10px; }
+.player-image { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background-color: #e2e8f0; }
+.player-name { font-weight: 500; }
+.dismissal-info { font-size: 0.8rem; color: #64748b; }
+
+/* --- Responsive Batting Table --- */
+.batting-table .player-cell div { display: flex; flex-direction: column; }
+.batting-table .dismissal-info { display: block; margin-top: 2px; font-size: 0.75rem; }
+.batting-table .batsman-col {
+    width: 40%;
+    white-space: normal; /* Allow batsman name to wrap if needed */
+}
+.batting-table .runs-col, .batting-table .balls-col { width: 10%; text-align: right; }
+.batting-table .fours-col, .batting-table .sixes-col { width: 10%; text-align: right; }
+.batting-table .sr-col { width: 20%; text-align: right; }
+.batting-table th.runs-col, .batting-table th.balls-col, .batting-table th.fours-col,
+.batting-table th.sixes-col, .batting-table th.sr-col { text-align: right; }
+
+/* --- Footer --- */
+/* == ROBUST BUTTON FIX == */
+.summary-actions-redesigned .match-result-button {
+    display: block;
+    width: 100%;
+    padding: 16px !important; /* Force the correct padding */
+    height: auto !important; /* Reset any fixed height */
+    min-height: 0 !important; /* Reset any minimum height */
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f766e;
+    text-align: center;
+    text-decoration: none;
+    background-color: #f0fdf4;
+    border: 1px solid #a3e635;
+    transition: background-color 0.2s ease;
+}
+
+.summary-actions-redesigned .match-result-button:hover {
+    background-color: #dcfce7;
+}

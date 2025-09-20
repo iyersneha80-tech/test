@@ -1,0 +1,26 @@
+/**
+ * Stylesheet specifically for the "My Teams" dashboard page.
+ *
+ * @package CricScore
+ * @version 1.0.0
+ */
+
+/* Style for the team logo in the main list */
+#my-teams-list .player-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #eee;
+}
+
+/* Style for the logo preview in the add/edit forms */
+.image-preview img {
+    max-width: 100px;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 3px;
+    border-radius: 3px;
+    margin-top: 10px;
+}

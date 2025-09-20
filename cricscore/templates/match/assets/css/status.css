@@ -1,0 +1,22 @@
+
+.cricscore-status {
+  position: fixed; bottom: 16px; right: 16px; z-index: 9999;
+  background: #111; color: #fff; padding: 8px 10px; border-radius: 10px;
+  font: 12px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+.cricscore-status .dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:middle; background:#e74c3c; }
+.cricscore-status.online .dot { background:#2ecc71; }
+.cricscore-status .meta { display: none; } /* Hide on mobile by default */
+
+/* Show meta details and add more padding on larger screens */
+@media (min-width: 768px) {
+  .cricscore-status {
+    padding: 10px 12px;
+  }
+  .cricscore-status .meta {
+    display: inline; /* Show it again on desktops */
+    opacity:.8;
+    margin-left:8px;
+  }
+}

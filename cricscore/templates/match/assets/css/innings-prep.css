@@ -1,0 +1,117 @@
+/*
+ * CricScore V2 - Innings Preparation Styles (v2 - Robust Sticky Footer)
+ */
+
+/* --- Main Layout --- */
+#step-innings-preparation {
+    padding: 0; /* Remove padding from the outer container */
+    display: flex; /* Make the step itself a flex container */
+    flex-direction: column;
+    flex-grow: 1; /* Allow it to fill the space from the body */
+}
+
+#step-innings-preparation .innings-prep-header {
+    text-align: center;
+    padding: 24px 24px 20px 24px;
+    border-bottom: 1px solid #e0e0e0;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+#step-innings-preparation .innings-prep-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+#step-innings-preparation .innings-prep-body {
+    flex-grow: 1; /* This is the key: the body grows to fill space */
+    overflow-y: auto; /* And ONLY the body scrolls */
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#step-innings-preparation .team-selection-card {
+    background-color: #f7f8fa;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+#step-innings-preparation .team-selection-card h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.25rem;
+}
+
+#step-innings-preparation .player-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#step-innings-preparation .player-roster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+#step-innings-preparation .player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    background-color: #fff;
+}
+
+#step-innings-preparation .player-card:hover {
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#step-innings-preparation .player-card-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+    background-color: #f1f5f9;
+}
+
+#step-innings-preparation .player-card-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    color: #334155;
+}
+
+#step-innings-preparation .player-role-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: #fff;
+    display: none; /* Hidden by default */
+}
+
+#step-innings-preparation .player-card.selected-striker { border-color: #2563eb; background-color: #eff6ff; }
+#step-innings-preparation .player-card.selected-striker .player-role-badge { background-color: #2563eb; }
+#step-innings-preparation .player-card.selected-nonstriker { border-color: #059669; background-color: #f0fdf4; }
+#step-innings-preparation .player-card.selected-nonstriker .player-role-badge { background-color: #059669; }
+#step-innings-preparation .player-card.selected-bowler { border-color: #db2777; background-color: #fdf2f8; }
+#step-innings-preparation .player-card.selected-bowler .player-role-badge { background-color: #db2777; }
+
